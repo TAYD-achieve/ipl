@@ -1,0 +1,15 @@
+{
+  "name": "ipl-franchise-manager-pro",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IPL Franchise Manager Pro - Native Android App & Web Showcase Portal",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}

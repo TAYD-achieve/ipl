@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPL Franchise Manager Pro - Native Android & Web Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="logo-icon">🏏</span>
+          <span class="logo-text">IPL Franchise <span class="highlight">Pro</span></span>
+        </div>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#simulation">Live Demo</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#download" class="btn btn-primary">Download APK</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">🔥 Native Android Kotlin + Jetpack Compose</div>
+        <h1 class="hero-title">Manage Your IPL Empire with <span class="gradient-text">Tactical Precision</span></h1>
+        <p class="hero-subtitle">
+          Experience next-generation cricket franchise management. Build championship squads, negotiate contracts, track multimillion-rupee budgets, and simulate thrilling match days with real-time momentum tracking.
+        </p>
+        <div class="hero-actions">
+          <a href="#simulation" class="btn btn-primary btn-lg">⚡ Try Live Simulation Demo</a>
+          <a href="#features" class="btn btn-secondary btn-lg">Explore All Features</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">₹100 Cr</span>
+            <span class="stat-label">Auction Purse Cap</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">10+</span>
+            <span class="stat-label">Franchise Teams</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Offline Room DB Cache</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">60 FPS</span>
+            <span class="stat-label">Jetpack Compose UI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Match Simulation Demo -->
+    <section id="simulation" class="section demo-section">
+      <div class="section-header">
+        <span class="section-badge">INTERACTIVE WEB PREVIEW</span>
+        <h2>Live Match Day Simulation Engine</h2>
+        <p>Test out the core match simulation logic directly in your browser. Experience how real-time batting health and tactical weather conditions shift match momentum.</p>
+      </div>
+
+      <div class="demo-grid">
+        <!-- Weather & Match Controls Card -->
+        <div class="demo-card controls-card">
+          <div class="card-header">
+            <h3>🌤️ Match Day Conditions</h3>
+            <button id="randomize-weather-btn" class="btn-sm">🎲 Randomize Weather</button>
+          </div>
+          <div id="weather-display" class="weather-box sunny">
+            <div class="weather-title">☀️ SUNNY (+5% Batting Boost)</div>
+            <div class="weather-desc">Fast outfield & batsmen paradise. STRATEGY: Select aggressive batsmen & powerplay boundary hitters.</div>
+          </div>
+
+          <div class="match-scorecard">
+            <div class="team-score">
+              <span class="team-name">🦁 Royal Challengers</span>
+              <span id="score-a" class="score-val">142/3</span>
+              <span id="overs-a" class="overs-val">(14.2 ov)</span>
+            </div>
+            <div class="vs-badge">VS</div>
+            <div class="team-score">
+              <span class="team-name">🦅 Super Kings</span>
+              <span id="score-b" class="score-val">118/5</span>
+              <span id="overs-b" class="overs-val">(14.2 ov)</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="sim-ball-btn" class="btn btn-primary btn-block">🏏 Simulate Next Ball</button>
+            <button id="sim-over-btn" class="btn btn-secondary btn-block">⏩ Simulate Full Over</button>
+            <button id="reset-match-btn" class="btn btn-outline btn-block">🔄 Reset Match</button>
+          </div>
+          <div id="commentary-box" class="commentary-box">
+            <div class="comm-item recent">🎯 14.2: Crisp cover drive by Virat! 4 RUNS added to the total!</div>
+            <div class="comm-item">⚡ 14.1: Good length delivery on off stump, defended solidly to point for no run.</div>
+          </div>
+        </div>
+
+        <!-- Momentum & Batting Health Card -->
+        <div class="demo-card momentum-card">
+          <div class="card-header">
+            <h3>⚡ Match Momentum & Team Health</h3>
+            <span id="advantage-tag" class="advantage-badge">🔥 ADVANTAGE: Royal Challengers</span>
+          </div>
+          <p class="card-subtitle">Real-time visual progress bars tracking batting health (wickets intact) and win dominance index.</p>
+
+          <div class="bar-group">
+            <div class="bar-label">
+              <span>Dominance Index</span>
+              <span id="dominance-val">62% vs 38%</span>
+            </div>
+            <div class="progress-track">
+              <div id="dominance-bar" class="progress-fill primary" style="width: 62%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-group">
+            <div class="bar-label">
+              <span class="green-text">🏏 Royal Challengers Batting Health</span>
+              <span id="health-a-val">7/10 Wickets (70%)</span>
+            </div>
+            <div class="progress-track green-track">
+              <div id="health-a-bar" class="progress-fill green" style="width: 70%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-group">
+            <div class="bar-label">
+              <span class="blue-text">🎯 Super Kings Batting Health</span>
+              <span id="health-b-val">5/10 Wickets (50%)</span>
+            </div>
+            <div class="progress-track blue-track">
+              <div id="health-b-bar" class="progress-fill blue" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="insight-box">
+            <h4>🧠 Tactical Assistant Insight</h4>
+            <p id="tactical-insight">With 7 wickets intact and a 62% dominance rating, Royal Challengers should push for boundary hitters in the death overs. Keep spinners on hold if evening dew sets in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features-section">
+      <div class="section-header">
+        <span class="section-badge">COMPLETE FEATURE SET</span>
+        <h2>Championship-Grade Management Modules</h2>
+        <p>Built from the ground up to deliver authentic IPL franchise administration and strategic match simulation.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Roster & Contract System</h3>
+          <p>Sign elite superstars, negotiate 1-year and 3-year contract extensions, and manage aging veteran wage hikes vs. prime youth roster balances.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Financial Purse Dashboard</h3>
+          <p>Complete visibility into your ₹100 Crore auction purse. Track sponsorship revenues, player salary expenditures, and stadium ticket income.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Dynamic Match Engine</h3>
+          <p>Algorithmic ball-by-ball simulation factoring in player ratings, pitch conditions, batting momentum, and live weather forecast modifiers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Youth Academy Training</h3>
+          <p>Invest in long-term development programs, specialized batting drills, and bowling bootcamps to transform rookie prospects into stars.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💾</div>
+          <h3>Offline Room Persistence</h3>
+          <p>Never lose your franchise progress. Complete SQLite Room database caching ensures instant game state restoration anytime, anywhere.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Interactive Toast Feedback</h3>
+          <p>Instant visual confirmation for contract signings, sponsorship finalized deals, and academy graduation milestones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="section architecture-section">
+      <div class="arch-box">
+        <div class="arch-content">
+          <span class="section-badge">TECHNICAL SPECIFICATIONS</span>
+          <h2>Built with Modern Android Architecture</h2>
+          <p>This repository contains a full-featured native Android application built with industry-standard Kotlin and Jetpack Compose toolchains.</p>
+          <ul class="tech-list">
+            <li><strong>Language:</strong> 100% Kotlin with Coroutines & StateFlow</li>
+            <li><strong>UI Framework:</strong> Jetpack Compose with Material Design 3 (M3)</li>
+            <li><strong>Architecture:</strong> MVVM (Model-View-ViewModel) + Clean Architecture</li>
+            <li><strong>Persistence:</strong> Android Jetpack Room Database with TypeConverters</li>
+            <li><strong>Deployment:</strong> Vercel Static Web Showcase + Android Gradle APK target</li>
+          </ul>
+        </div>
+        <div class="arch-visual">
+          <div class="code-preview">
+            <div class="code-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="code-title">MatchMomentumAndHealthSection.kt</span>
+            </div>
+            <pre><code>@Composable
+fun MatchMomentumAndHealthSection(
+    summary: MatchSimulationResult?,
+    teamA: TeamEntity,
+    match: MatchEntity
+) {
+    val healthA = ((10 - wktA) / 10f).coerceIn(0f, 1f)
+    val momentum = calculateDominanceIndex(strA, strB)
+    
+    Card(colors = CardDefaults.cardColors(...)) {
+        CustomProgressBar(
+            progress = momentum,
+            fillColor = Color(0xFF6750A4),
+            trackColor = Color(0xFFFFE0B2)
+        )
+    }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download / Deployment Section -->
+    <section id="download" class="section download-section">
+      <div class="download-card">
+        <h2>🚀 Ready to Deploy or Play on Android?</h2>
+        <p>To run the native Android app on your device or emulator, compile the APK using Google AI Studio Build or open this project in Android Studio.</p>
+        <div class="download-actions">
+          <a href="https://ai.studio/build" target="_blank" class="btn btn-primary btn-lg">Open in AI Studio Build</a>
+          <a href="https://github.com" target="_blank" class="btn btn-outline btn-lg">View GitHub Repository</a>
+        </div>
+        <div class="build-tip">
+          <span>💡 Note: This web page is automatically compiled and hosted by Vercel from the repository root using Vite!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 IPL Franchise Manager Pro. Powered by Google AI Studio & Vercel.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
