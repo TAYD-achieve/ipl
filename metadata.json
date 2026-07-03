@@ -1,0 +1,6 @@
+{
+  "name": "IPL Tycoon",
+  "description": "Build and manage your IPL cricket franchise from scratch in this deep offline business simulation game.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
