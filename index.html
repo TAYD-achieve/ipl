@@ -3,170 +3,214 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IPL Franchise Manager Pro - Web & Native Experience</title>
+    <title>IPL Franchise Manager Pro - Web Companion (M3 Light Edition)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <!-- Top App Banner / Header -->
-    <header class="app-header">
-      <div class="header-content">
-        <div class="brand">
-          <span class="app-logo">🏏</span>
-          <div class="brand-titles">
-            <h1>IPL Franchise <span class="highlight">Pro</span></h1>
-            <span class="platform-badge">🌐 Vercel Web Edition &nbsp;|&nbsp; 📱 Android Kotlin Companion</span>
-          </div>
+    <!-- Top Application App Bar (Material 3 Style) -->
+    <header class="top-app-bar">
+      <div class="app-bar-left">
+        <div class="team-crest" id="header-team-crest">
+          <span id="crest-text">RCB</span>
         </div>
-        
-        <div class="franchise-status">
-          <div class="status-pill franchise-pill">
-            <span class="pill-icon">🦁</span>
-            <div class="pill-text">
-              <span class="label">MY FRANCHISE</span>
-              <strong id="header-team-name">Royal Challengers Bengaluru</strong>
-            </div>
-          </div>
-          <div class="status-pill purse-pill">
-            <span class="pill-icon">💰</span>
-            <div class="pill-text">
-              <span class="label">AUCTION PURSE</span>
-              <strong id="header-purse-val">₹84.50 Cr</strong>
-            </div>
-          </div>
-          <div class="status-pill season-pill">
-            <span class="pill-icon">🏆</span>
-            <div class="pill-text">
-              <span class="label">SEASON 2026</span>
-              <strong>Match Day 15</strong>
-            </div>
-          </div>
-          <button id="btn-reset-season" class="btn btn-outline btn-icon" title="Reset Season & Data">🔄 Reset</button>
+        <div class="team-title-group">
+          <h1 id="header-team-name">Royal Challengers Bengaluru</h1>
+          <span class="slogan-text" id="header-slogan">Play Bold • IPL 2026 Championship Campaign</span>
         </div>
       </div>
-
-      <!-- Main Navigation Bar -->
-      <nav class="nav-bar">
-        <div class="nav-tabs">
-          <button class="nav-tab active" data-tab="dashboard">
-            <span>📊</span> Franchise Dashboard
-          </button>
-          <button class="nav-tab pulse-tab" data-tab="match">
-            <span>⚡</span> Live Match Day Simulation
-            <span class="live-indicator">LIVE</span>
-          </button>
-          <button class="nav-tab" data-tab="squad">
-            <span>🤝</span> Squad & Contracts
-          </button>
-          <button class="nav-tab" data-tab="finances">
-            <span>💰</span> Financial Purse
-          </button>
-          <button class="nav-tab" data-tab="standings">
-            <span>🏆</span> League Standings
-          </button>
+      
+      <div class="app-bar-right">
+        <div class="header-stat-pill">
+          <span class="pill-icon">💰</span>
+          <div class="pill-info">
+            <span class="pill-label">PURSE BALANCE</span>
+            <strong id="header-balance-val">₹84.50 Cr</strong>
+          </div>
         </div>
-      </nav>
+        <div class="header-stat-pill">
+          <span class="pill-icon">🏏</span>
+          <div class="pill-info">
+            <span class="pill-label">SQUAD SIZE</span>
+            <strong id="header-squad-val">18 Players</strong>
+          </div>
+        </div>
+        <div class="header-stat-pill">
+          <span class="pill-icon">🌟</span>
+          <div class="pill-info">
+            <span class="pill-label">FAN BASE</span>
+            <strong id="header-fans-val">1.2M (88% Happy)</strong>
+          </div>
+        </div>
+        <button id="btn-save-snapshot" class="btn btn-primary btn-sm" title="Persist data to localStorage (Room DB Mirror)">
+          <span>💾 SAVE SNAPSHOT</span>
+        </button>
+        <button id="btn-switch-team" class="btn btn-outline btn-sm" title="Switch Franchise or Reset Season">
+          <span>🔄 SWITCH TEAM</span>
+        </button>
+      </div>
     </header>
 
-    <!-- Main Content Work Area -->
-    <main class="main-container">
+    <!-- Main Navigation Bar (6 Tabs exactly matching Android Preview) -->
+    <nav class="navigation-bar">
+      <div class="nav-container">
+        <button class="nav-item active" data-tab="home">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">HOME</span>
+        </button>
+        <button class="nav-item" data-tab="schedule">
+          <span class="nav-icon">📅</span>
+          <span class="nav-label">SCHEDULE</span>
+        </button>
+        <button class="nav-item" data-tab="squad">
+          <span class="nav-icon">🏏</span>
+          <span class="nav-label">SQUAD</span>
+        </button>
+        <button class="nav-item" data-tab="auction">
+          <span class="nav-icon">🛒</span>
+          <span class="nav-label">AUCTION</span>
+        </button>
+        <button class="nav-item" data-tab="finances">
+          <span class="nav-icon">💰</span>
+          <span class="nav-label">FINANCES</span>
+        </button>
+        <button class="nav-item" data-tab="more">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">MORE</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Application Main Body -->
+    <main class="app-main-content">
 
       <!-- ========================================== -->
-      <!-- TAB 1: FRANCHISE DASHBOARD                 -->
+      <!-- TAB 1: HOME (DASHBOARD & OVERVIEW)         -->
       <!-- ========================================== -->
-      <section id="view-dashboard" class="tab-view active">
-        <div class="view-header">
-          <h2>Franchise Executive Summary</h2>
-          <p>Real-time analytics and strategic recommendations for your IPL championship campaign.</p>
+      <section id="view-home" class="tab-screen active">
+        <!-- Local Persistence Banner (Room SQLite Mirror) -->
+        <div class="card store-banner-card">
+          <div class="store-top">
+            <span class="store-badge">💾 LOCAL PERSISTENCE STORE (ROOM SQLITE MIRROR)</span>
+            <span class="store-status" id="home-season-status">Season 2026 • Match Day 1 of 14</span>
+          </div>
+          <div class="progress-track store-track mt-2">
+            <div id="home-season-bar" class="progress-fill purple-fill" style="width: 7%;"></div>
+          </div>
+          <div class="store-bottom mt-2">
+            <span>Auto-persisting Budget, Roster & Match Results across browser sessions via Web Storage API</span>
+            <div class="store-actions">
+              <button class="btn btn-primary btn-xs" onclick="saveGameData()">💾 SAVE PROGRESS</button>
+              <button id="btn-next-season" class="btn btn-success btn-xs" style="display: none;" onclick="startNextSeason()">🏆 NEXT SEASON</button>
+            </div>
+          </div>
         </div>
 
-        <div class="dashboard-grid">
-          <!-- Next Match Banner -->
-          <div class="card next-match-card col-span-2">
-            <div class="card-badge">NEXT FEATURED MATCH</div>
-            <div class="matchup-box">
-              <div class="team-block">
-                <span class="team-logo">🦁</span>
-                <h3>Royal Challengers</h3>
-                <span class="team-rank">Rank: #2 (12 Pts)</span>
-              </div>
-              <div class="vs-circle">VS</div>
-              <div class="team-block opponent">
-                <span class="team-logo">🦅</span>
-                <h3>Chennai Super Kings</h3>
-                <span class="team-rank">Rank: #1 (14 Pts)</span>
-              </div>
+        <!-- 4 Header Stats Row -->
+        <div class="stats-row">
+          <div class="stat-box blue-border">
+            <span class="stat-box-label">Budget (Balance)</span>
+            <strong class="stat-box-val" id="home-stat-budget">₹84.50 Cr</strong>
+            <span class="stat-box-sub">Auction Cap: ₹100 Cr</span>
+          </div>
+          <div class="stat-box green-border">
+            <span class="stat-box-label">Current Roster</span>
+            <strong class="stat-box-val" id="home-stat-squad">18 Players</strong>
+            <span class="stat-box-sub">4 Overseas Stars</span>
+          </div>
+          <div class="stat-box orange-border">
+            <span class="stat-box-label">Franchise Fan Base</span>
+            <strong class="stat-box-val" id="home-stat-fans">1,250,000</strong>
+            <span class="stat-box-sub">+12,500 this week</span>
+          </div>
+          <div class="stat-box purple-border">
+            <span class="stat-box-label">Fan Happiness Index</span>
+            <strong class="stat-box-val" id="home-stat-happy">88% (Delighted)</strong>
+            <span class="stat-box-sub">High Stadium Attendance</span>
+          </div>
+        </div>
+
+        <!-- Next Featured Match Banner -->
+        <div class="card next-match-banner mt-3">
+          <div class="match-banner-header">
+            <span class="featured-badge">🔥 NEXT FEATURED MATCH • ROUND <span id="home-match-round">1</span></span>
+            <span class="venue-tag">📍 M. Chinnaswamy Stadium, Bengaluru</span>
+          </div>
+          <div class="matchup-container">
+            <div class="team-side">
+              <div class="big-crest" id="home-my-crest">RCB</div>
+              <h3 id="home-my-name">Royal Challengers Bengaluru</h3>
+              <span class="rank-tag">Rank #2 • 12 Pts</span>
             </div>
-            <div class="matchup-footer">
-              <div class="venue-info">📍 M. Chinnaswamy Stadium, Bengaluru &nbsp;|&nbsp; 🌤️ Weather: Evening Dew (+8% Batting Boost)</div>
-              <button class="btn btn-primary" onclick="switchTab('match')">⚡ Launch Match Day Simulation</button>
+            <div class="vs-badge">VS</div>
+            <div class="team-side opponent">
+              <div class="big-crest opp-crest" id="home-opp-crest">CSK</div>
+              <h3 id="home-opp-name">Chennai Super Kings</h3>
+              <span class="rank-tag">Rank #1 • 14 Pts</span>
             </div>
           </div>
-
-          <!-- Quick Stats Cards -->
-          <div class="card stat-card">
-            <div class="stat-icon purple">🏏</div>
-            <div class="stat-details">
-              <span class="stat-num" id="dash-squad-count">18 / 25</span>
-              <span class="stat-label">Active Squad Size</span>
-              <span class="stat-sub">4 Overseas Superstars</span>
+          <div class="match-banner-footer">
+            <div class="weather-preview">
+              <span>🌤️ Forecast: <strong id="home-weather-txt">Evening Dew (+8% Batting Advantage)</strong></span>
             </div>
+            <button class="btn btn-primary btn-lg pulse-btn" onclick="openMatchDaySimulation()">
+              <span>⚡ PLAY MATCH DAY SIMULATION</span>
+            </button>
           </div>
+        </div>
 
-          <div class="card stat-card">
-            <div class="stat-icon green">⚡</div>
-            <div class="stat-details">
-              <span class="stat-num" id="dash-team-rating">88.4</span>
-              <span class="stat-label">Team Strength Index</span>
-              <span class="stat-sub">+3.2% vs League Avg</span>
-            </div>
-          </div>
-
-          <!-- Recent Form & Top Performers -->
+        <!-- Recent Form & Top Performers -->
+        <div class="two-col-grid mt-3">
           <div class="card form-card">
-            <h3>📈 Recent Match Form</h3>
-            <div class="form-badges">
-              <span class="form-badge win">W</span>
-              <span class="form-badge win">W</span>
-              <span class="form-badge loss">L</span>
-              <span class="form-badge win">W</span>
-              <span class="form-badge win">W</span>
+            <div class="card-title-row">
+              <h3>📈 Recent Match Form</h3>
+              <button class="btn btn-outline btn-xs" onclick="switchTab('schedule')">View All Fixtures →</button>
             </div>
-            <p class="form-desc">4 Wins in last 5 matches. Batting unit is firing at 9.4 RPO in the Powerplay!</p>
-            <div class="quick-links">
-              <button class="btn btn-sm" onclick="switchTab('standings')">View Points Table →</button>
-              <button class="btn btn-sm" onclick="switchTab('squad')">Manage Lineup →</button>
+            <div class="form-badges mt-2" id="home-form-badges">
+              <span class="f-badge win">W</span>
+              <span class="f-badge win">W</span>
+              <span class="f-badge loss">L</span>
+              <span class="f-badge win">W</span>
+              <span class="f-badge win">W</span>
+            </div>
+            <p class="text-muted mt-2">Team batting unit is firing at 9.4 RPO in the Powerplay. Fast bowlers have taken 14 wickets in the death overs.</p>
+            <div class="quick-nav-actions mt-3">
+              <button class="btn btn-secondary btn-sm flex-1" onclick="switchTab('squad')">🏏 Manage Lineup</button>
+              <button class="btn btn-secondary btn-sm flex-1" onclick="switchTab('more')">🏆 Points Table</button>
             </div>
           </div>
 
-          <div class="card leaders-card">
-            <h3>🌟 Franchise Star Performers</h3>
-            <div class="leader-list">
-              <div class="leader-item">
-                <span class="leader-avatar">👑</span>
-                <div class="leader-info">
+          <div class="card stars-card">
+            <div class="card-title-row">
+              <h3>🌟 Franchise Star Performers</h3>
+              <button class="btn btn-outline btn-xs" onclick="switchTab('squad')">Full Squad →</button>
+            </div>
+            <div class="star-list mt-2">
+              <div class="star-item">
+                <span class="star-icon">👑</span>
+                <div class="star-details">
                   <strong>Virat Kohli</strong>
                   <span>Top Run Scorer • 482 Runs (SR: 154.2)</span>
                 </div>
-                <span class="rating-tag gold">96 OVR</span>
+                <span class="ovr-pill gold">96 OVR</span>
               </div>
-              <div class="leader-item">
-                <span class="leader-avatar">🎯</span>
-                <div class="leader-info">
+              <div class="star-item">
+                <span class="star-icon">🎯</span>
+                <div class="star-details">
                   <strong>Mohammed Siraj</strong>
                   <span>Leading Wicket Taker • 16 Wickets (ECO: 7.4)</span>
                 </div>
-                <span class="rating-tag purple">91 OVR</span>
+                <span class="ovr-pill purple">91 OVR</span>
               </div>
-              <div class="leader-item">
-                <span class="leader-avatar">💥</span>
-                <div class="leader-info">
+              <div class="star-item">
+                <span class="star-icon">💥</span>
+                <div class="star-details">
                   <strong>Glenn Maxwell</strong>
                   <span>Most Sixes • 24 Sixes (SR: 182.5)</span>
                 </div>
-                <span class="rating-tag blue">93 OVR</span>
+                <span class="ovr-pill blue">93 OVR</span>
               </div>
             </div>
           </div>
@@ -174,127 +218,29 @@
       </section>
 
       <!-- ========================================== -->
-      <!-- TAB 2: LIVE MATCH DAY SIMULATION           -->
+      <!-- TAB 2: SCHEDULE (14 MATCH DAYS)            -->
       <!-- ========================================== -->
-      <section id="view-match" class="tab-view">
-        <div class="view-header">
-          <h2>Live Match Day Simulation Engine</h2>
-          <p>Ball-by-ball algorithmic simulation with real-time visual progress bars tracking momentum and batting health.</p>
+      <section id="view-schedule" class="tab-screen">
+        <div class="screen-header">
+          <div>
+            <h2>IPL 2026 Complete Match Schedule</h2>
+            <p>14 Match Days of high-octane T20 competition. Simulate individual fixtures or entire match rounds.</p>
+          </div>
+          <div class="round-selector">
+            <label>Select Round:</label>
+            <select id="schedule-round-select" class="form-select">
+              <!-- Dynamically populated 1 to 14 -->
+            </select>
+          </div>
         </div>
 
-        <div class="match-grid">
-          <!-- Left Column: Scorecard & Controls -->
-          <div class="card match-controls-card">
-            <div class="card-top">
-              <h3>🌤️ Weather & Pitch Conditions</h3>
-              <button id="btn-weather" class="btn btn-sm btn-outline">🎲 Change Conditions</button>
-            </div>
-            <div id="weather-box" class="weather-box dew">
-              <div class="weather-title">💧 EVENING DEW (+8% Batting Advantage)</div>
-              <div class="weather-desc">Wet ball slips out of spinners' hands. STRATEGY: Avoid extra spinners; favor fast pacers & big hitters.</div>
-            </div>
-
-            <div class="live-scorecard">
-              <div class="team-score-box">
-                <span class="t-name">🦁 Royal Challengers</span>
-                <span id="live-score-a" class="t-score">142/3</span>
-                <span id="live-overs-a" class="t-overs">(14.2 ov)</span>
-              </div>
-              <div class="score-divider">
-                <span class="vs-circle-sm">VS</span>
-                <span id="target-info" class="target-txt">1st Innings in progress</span>
-              </div>
-              <div class="team-score-box right">
-                <span class="t-name">🦅 Super Kings</span>
-                <span id="live-score-b" class="t-score">118/5</span>
-                <span id="live-overs-b" class="t-overs">(14.2 ov)</span>
-              </div>
-            </div>
-
-            <!-- Simulation Controls -->
-            <div class="sim-actions">
-              <button id="btn-sim-ball" class="btn btn-primary btn-block">
-                <span>🏏 Simulate Next Ball</span>
-              </button>
-              <div class="action-row">
-                <button id="btn-sim-over" class="btn btn-secondary flex-1">⏩ Simulate Full Over</button>
-                <button id="btn-sim-inn" class="btn btn-secondary flex-1">🚀 Fast Forward 5 Overs</button>
-              </div>
-              <button id="btn-reset-match" class="btn btn-outline btn-block">🔄 Reset Match Simulation</button>
-            </div>
-
-            <!-- Commentary Ticker -->
-            <div class="commentary-container">
-              <div class="comm-header">
-                <span>🎙️ LIVE BALL-BY-BALL COMMENTARY</span>
-                <span id="comm-status" class="live-dot">● LIVE</span>
-              </div>
-              <div id="commentary-list" class="commentary-list">
-                <div class="comm-item recent">🎯 14.2 (Siraj to Dhoni): Full toss on middle! Smashed down the ground for 4 RUNS!</div>
-                <div class="comm-item">⚡ 14.1 (Siraj to Dhoni): Yorker right on off stump, dug out safely to point for no run.</div>
-                <div class="comm-item">🏏 14.0 (Jadeja to Kohli): Short of length, pulled away to deep mid-wicket for 2 easy runs.</div>
-              </div>
-            </div>
+        <div class="card schedule-container">
+          <div class="round-header-bar">
+            <h3 id="schedule-round-title">Match Day 1 Fixtures</h3>
+            <button id="btn-sim-round" class="btn btn-secondary btn-sm">⏩ Simulate Remaining CPU Matches</button>
           </div>
-
-          <!-- Right Column: Visual Progress Bars (MOMENTUM & HEALTH) -->
-          <div class="card momentum-card">
-            <div class="card-top">
-              <h3>⚡ Match Momentum & Team Health</h3>
-              <span id="advantage-tag" class="advantage-badge">🔥 ADVANTAGE: RCB</span>
-            </div>
-            <p class="section-sub">Real-time visual progress bars tracking batting health (wickets intact) and algorithmic match dominance.</p>
-
-            <div class="progress-section">
-              <!-- Bar 1: Dominance Index -->
-              <div class="bar-block">
-                <div class="bar-header">
-                  <span class="bar-title">🏆 Match Dominance Index</span>
-                  <span id="dominance-val" class="bar-val">RCB (62%) vs CSK (38%)</span>
-                </div>
-                <div class="progress-track dominance-track">
-                  <div id="dominance-bar" class="progress-fill purple-grad" style="width: 62%;"></div>
-                </div>
-                <div class="bar-labels">
-                  <span>🦁 Royal Challengers</span>
-                  <span>🦅 Super Kings</span>
-                </div>
-              </div>
-
-              <!-- Bar 2: Team A Batting Health -->
-              <div class="bar-block">
-                <div class="bar-header">
-                  <span class="bar-title green-txt">🏏 RCB Batting Health (Wickets Intact)</span>
-                  <span id="health-a-val" class="bar-val green-txt">7/10 Wickets (70%)</span>
-                </div>
-                <div class="progress-track green-track">
-                  <div id="health-a-bar" class="progress-fill green-grad" style="width: 70%;"></div>
-                </div>
-                <span class="bar-hint">Remaining batting firepower and lower-order stability</span>
-              </div>
-
-              <!-- Bar 3: Team B Batting Health -->
-              <div class="bar-block">
-                <div class="bar-header">
-                  <span class="bar-title blue-txt">🎯 CSK Batting Health (Wickets Intact)</span>
-                  <span id="health-b-val" class="bar-val blue-txt">5/10 Wickets (50%)</span>
-                </div>
-                <div class="progress-track blue-track">
-                  <div id="health-b-bar" class="progress-fill blue-grad" style="width: 50%;"></div>
-                </div>
-                <span class="bar-hint">Remaining batting firepower and lower-order stability</span>
-              </div>
-            </div>
-
-            <!-- Tactical Coach AI Box -->
-            <div class="ai-coach-box">
-              <div class="coach-title">🧠 AI TACTICAL COACH INSIGHT</div>
-              <p id="coach-insight">With 7 wickets intact and a 62% dominance rating, Royal Challengers should push for aggressive boundary hitters in the death overs. Keep spinners on hold if evening dew sets in.</p>
-              <div class="coach-stats">
-                <div class="c-stat"><span>Required RR</span> <strong id="c-rrr">8.4 RPO</strong></div>
-                <div class="c-stat"><span>Win Probability</span> <strong id="c-winprob">74.2%</strong></div>
-              </div>
-            </div>
+          <div class="fixtures-list mt-2" id="schedule-fixtures-list">
+            <!-- Dynamically rendered via JS -->
           </div>
         </div>
       </section>
@@ -302,64 +248,83 @@
       <!-- ========================================== -->
       <!-- TAB 3: SQUAD & ROSTER MANAGEMENT           -->
       <!-- ========================================== -->
-      <section id="view-squad" class="tab-view">
-        <div class="view-header flex-between">
+      <section id="view-squad" class="tab-screen">
+        <div class="screen-header flex-between">
           <div>
             <h2>Squad & Contract Management</h2>
-            <p>Manage superstar contracts, salary caps, and youth academy prospects.</p>
+            <p>Manage superstar salaries, contract extensions, and team balance.</p>
           </div>
-          <button class="btn btn-primary" onclick="showToast('🤝 Scouting network dispatched! Found 3 new rookie talents in domestic circuit.', 'success')">✨ Scout Rookie Prospects</button>
+          <button class="btn btn-primary" onclick="scoutRookieTalent()">✨ Scout Rookie Prospect (-₹1.0 Cr)</button>
         </div>
 
-        <div class="squad-controls">
-          <div class="filter-pills">
-            <button class="filter-btn active" data-role="all">All Players (18)</button>
-            <button class="filter-btn" data-role="batsman">🏏 Batsmen (6)</button>
-            <button class="filter-btn" data-role="bowler">🎯 Bowlers (7)</button>
-            <button class="filter-btn" data-role="allrounder">⚡ All-Rounders (3)</button>
-            <button class="filter-btn" data-role="keeper">🧤 Wicket-Keepers (2)</button>
-          </div>
+        <div class="squad-filter-bar mb-3">
+          <button class="s-filter active" data-role="all">All Players (<span id="count-all">18</span>)</button>
+          <button class="s-filter" data-role="batsman">🏏 Batsmen (<span id="count-bat">6</span>)</button>
+          <button class="s-filter" data-role="bowler">🎯 Bowlers (<span id="count-bowl">7</span>)</button>
+          <button class="s-filter" data-role="allrounder">⚡ All-Rounders (<span id="count-allr">3</span>)</button>
+          <button class="s-filter" data-role="keeper">🧤 Wicket-Keepers (<span id="count-keep">2</span>)</button>
         </div>
 
-        <div class="table-responsive">
-          <table class="squad-table">
-            <thead>
-              <tr>
-                <th>Player Name</th>
-                <th>Role</th>
-                <th>OVR Rating</th>
-                <th>Contract Salary</th>
-                <th>Contract Status</th>
-                <th>Strategic Actions</th>
-              </tr>
-            </thead>
-            <tbody id="squad-tbody">
-              <!-- Dynamically rendered via JS -->
-            </tbody>
-          </table>
+        <div class="card p-0">
+          <div class="table-container">
+            <table class="m3-table">
+              <thead>
+                <tr>
+                  <th>Player Name</th>
+                  <th>Role</th>
+                  <th>OVR Rating</th>
+                  <th>Annual Salary</th>
+                  <th>Contract Status</th>
+                  <th class="text-right">Strategic Actions</th>
+                </tr>
+              </thead>
+              <tbody id="squad-table-body">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <!-- ========================================== -->
-      <!-- TAB 4: FINANCIAL PURSE & SPONSORS          -->
+      <!-- TAB 4: PLAYER AUCTION POOL                 -->
       <!-- ========================================== -->
-      <section id="view-finances" class="tab-view">
-        <div class="view-header">
-          <h2>Financial Purse & Revenue Dashboard</h2>
-          <p>Complete financial oversight of your ₹100 Crore auction purse, ticket sales, and title sponsorships.</p>
+      <section id="view-auction" class="tab-screen">
+        <div class="screen-header flex-between">
+          <div>
+            <h2>Live Player Auction Pool</h2>
+            <p>Sign international superstars and elite domestic performers to strengthen your championship roster.</p>
+          </div>
+          <div class="auction-budget-tag">
+            <span>Available Purse: <strong id="auction-purse-display">₹84.50 Cr</strong></span>
+          </div>
         </div>
 
-        <div class="finances-grid">
-          <div class="card purse-card col-span-2">
-            <h3>💰 Auction Purse Utilization</h3>
-            <div class="purse-bar-wrapper">
-              <div class="purse-bar">
-                <div class="p-fill used" style="width: 84.5%;"></div>
-                <div class="p-fill avail" style="width: 15.5%;"></div>
+        <div class="auction-grid mt-3" id="auction-players-grid">
+          <!-- Dynamically rendered auction cards -->
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 5: FINANCIAL PURSE & REVENUE           -->
+      <!-- ========================================== -->
+      <section id="view-finances" class="tab-screen">
+        <div class="screen-header">
+          <h2>Financial Purse & Revenue Dashboard</h2>
+          <p>Complete visibility into your ₹100 Crore auction cap, ticket sales, and title sponsorships.</p>
+        </div>
+
+        <div class="two-col-grid">
+          <div class="card purse-overview-card col-span-2">
+            <h3>💰 Auction Purse Utilization & Salary Cap</h3>
+            <div class="purse-bar-container mt-3">
+              <div class="purse-progress">
+                <div id="finance-used-bar" class="p-fill used" style="width: 84.5%;"></div>
+                <div id="finance-avail-bar" class="p-fill avail" style="width: 15.5%;"></div>
               </div>
-              <div class="purse-legend">
-                <span>🔴 Squad Salaries: <strong>₹84.50 Cr</strong> (84.5%)</span>
-                <span>🟢 Remaining Purse: <strong>₹15.50 Cr</strong> (15.5%)</span>
+              <div class="purse-legend mt-2">
+                <span>🔴 Squad Salaries: <strong id="finance-used-val">₹84.50 Cr</strong> (84.5%)</span>
+                <span>🟢 Remaining Purse: <strong id="finance-avail-val">₹15.50 Cr</strong> (15.5%)</span>
                 <span>🏆 Total Cap: <strong>₹100.00 Cr</strong></span>
               </div>
             </div>
@@ -367,72 +332,262 @@
 
           <div class="card revenue-card">
             <h3>📈 Seasonal Revenue Streams</h3>
-            <ul class="rev-list">
-              <li><span>🏷️ Title Sponsor (JioCinema)</span> <strong>+₹24.0 Cr</strong></li>
-              <li><span>🎟️ Stadium Gate Receipts (7 Games)</span> <strong>+₹18.5 Cr</strong></li>
-              <li><span>📺 Central IPL Media Rights Share</span> <strong>+₹42.0 Cr</strong></li>
-              <li><span>👕 Merchandise & Kit Sales</span> <strong>+₹6.8 Cr</strong></li>
+            <ul class="rev-list mt-3">
+              <li><span>🏷️ Title Sponsor (JioCinema)</span> <strong class="green-txt">+₹24.0 Cr</strong></li>
+              <li><span>🎟️ Stadium Gate Receipts (7 Home Games)</span> <strong class="green-txt" id="finance-gate-val">+₹18.5 Cr</strong></li>
+              <li><span>📺 Central IPL Media Rights Share</span> <strong class="green-txt">+₹42.0 Cr</strong></li>
+              <li><span>👕 Merchandise & Kit Sales</span> <strong class="green-txt">+₹6.8 Cr</strong></li>
             </ul>
-            <div class="rev-total"><span>Total Projected Revenue:</span> <strong>₹91.30 Cr</strong></div>
+            <div class="rev-total mt-3">
+              <span>Total Projected Revenue:</span> <strong id="finance-total-rev">₹91.30 Cr</strong>
+            </div>
           </div>
 
-          <div class="card ticket-card">
+          <div class="card ticket-optimizer-card">
             <h3>🎟️ Stadium Ticket Price Optimizer</h3>
-            <p>Adjust home match ticket pricing at M. Chinnaswamy Stadium to balance fan attendance and gate revenue.</p>
-            <div class="slider-box">
-              <label>Ticket Tier Price: <strong id="ticket-val">₹2,500 / Seat</strong></label>
-              <input type="range" id="ticket-slider" min="1000" max="8000" step="250" value="2500">
+            <p class="text-muted mt-1">Adjust ticket pricing at M. Chinnaswamy Stadium to balance fan attendance and gate revenue.</p>
+            <div class="slider-group mt-3">
+              <label>Ticket Tier Price: <strong id="ticket-price-display">₹2,500 / Seat</strong></label>
+              <input type="range" id="ticket-price-slider" min="1000" max="8000" step="250" value="2500" class="m3-slider">
             </div>
-            <div class="ticket-prediction">
-              <span>Expected Attendance: <strong id="att-val">98.5% (Full House)</strong></span>
-              <span>Projected Gate Income: <strong id="gate-val">₹18.5 Cr</strong></span>
+            <div class="prediction-box mt-3">
+              <div>Expected Attendance: <strong id="ticket-att-val" class="purple-txt">98.5% (Full House)</strong></div>
+              <div>Projected Gate Income: <strong id="ticket-gate-val" class="green-txt">₹18.50 Cr</strong></div>
             </div>
-            <button class="btn btn-secondary btn-block mt-4" onclick="showToast('✅ Ticket pricing tier locked for upcoming home fixtures!', 'success')">Save Pricing Strategy</button>
+            <button class="btn btn-secondary btn-block mt-3" onclick="showToast('✅ Ticket pricing strategy saved!', 'success')">Save Pricing Strategy</button>
           </div>
         </div>
       </section>
 
       <!-- ========================================== -->
-      <!-- TAB 5: LEAGUE STANDINGS & SCHEDULE         -->
+      <!-- TAB 6: MORE (STADIUM, ACADEMY, STANDINGS)  -->
       <!-- ========================================== -->
-      <section id="view-standings" class="tab-view">
-        <div class="view-header">
-          <h2>IPL 2026 League Points Table</h2>
-          <p>Top 4 franchises qualify for the Championship Playoffs (Qualifier 1, Eliminator, Qualifier 2, Final).</p>
+      <section id="view-more" class="tab-screen">
+        <div class="screen-header">
+          <h2>Franchise Hub & League Standings</h2>
+          <p>Upgrade stadium facilities, invest in youth development, and track league standings.</p>
         </div>
 
-        <div class="card standings-card">
-          <div class="table-responsive">
-            <table class="standings-table">
-              <thead>
-                <tr>
-                  <th>Rank</th>
-                  <th>Franchise Team</th>
-                  <th>Played</th>
-                  <th>Won</th>
-                  <th>Lost</th>
-                  <th>Points</th>
-                  <th>Net Run Rate (NRR)</th>
-                  <th>Form</th>
-                </tr>
-              </thead>
-              <tbody id="standings-tbody">
-                <!-- Dynamically rendered via JS -->
-              </tbody>
-            </table>
+        <div class="two-col-grid">
+          <div class="card hub-action-card">
+            <div class="hub-icon">🏟️</div>
+            <div class="hub-text">
+              <h3>M. Chinnaswamy Stadium Expansion</h3>
+              <p>Current Capacity: 40,000 Seats • Level 2 Hospitality. Upgrade by +5,000 seats to boost home ticket revenue.</p>
+              <button class="btn btn-secondary mt-2" onclick="upgradeStadium()">🏗️ Upgrade Stadium Capacity (-₹5.0 Cr)</button>
+            </div>
+          </div>
+
+          <div class="card hub-action-card">
+            <div class="hub-icon">🎓</div>
+            <div class="hub-text">
+              <h3>Youth Academy Bootcamp</h3>
+              <p>Send a rising prospect to intensive high-performance batting and bowling drills to increase OVR rating by +3.</p>
+              <button class="btn btn-secondary mt-2" onclick="trainYouthAcademy()">⚡ Conduct Training Bootcamp (-₹2.0 Cr)</button>
+            </div>
+          </div>
+
+          <div class="card standings-card col-span-2 mt-2">
+            <div class="card-title-row">
+              <h3>🏆 IPL 2026 League Standings (Points Table)</h3>
+              <span class="text-muted text-sm">Top 4 qualify for Championship Playoffs</span>
+            </div>
+            <div class="table-container mt-3">
+              <table class="m3-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Franchise Team</th>
+                    <th>Played</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Points</th>
+                    <th>Net Run Rate (NRR)</th>
+                    <th>Form</th>
+                  </tr>
+                </thead>
+                <tbody id="standings-table-body">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- ========================================== -->
+      <!-- DEDICATED LIVE MATCH DAY SIMULATION SCREEN -->
+      <!-- ========================================== -->
+      <section id="view-matchday" class="tab-screen matchday-modal-screen">
+        <div class="matchday-top-bar">
+          <button class="btn btn-outline btn-sm" onclick="closeMatchDaySimulation()">
+            <span>🔙 Back to Schedule</span>
+          </button>
+          <div class="matchday-title-center">
+            <span class="live-pulse-badge">● LIVE MATCH DAY SIMULATION</span>
+            <h2 id="matchday-matchup-title">Royal Challengers vs Chennai Super Kings</h2>
+          </div>
+          <button id="btn-randomize-weather" class="btn btn-secondary btn-sm" onclick="randomizeMatchWeather()">
+            <span>🎲 Change Weather</span>
+          </button>
+        </div>
+
+        <!-- Weather Banner -->
+        <div id="matchday-weather-banner" class="weather-banner dew-bg mt-2">
+          <div class="w-icon">💧</div>
+          <div class="w-text">
+            <strong id="matchday-weather-title">EVENING DEW (+8% Batting Advantage)</strong>
+            <span id="matchday-weather-desc">Wet ball slips out of spinners' hands. STRATEGY: Avoid extra spinners; favor fast pacers & big hitters.</span>
+          </div>
+        </div>
+
+        <div class="matchday-grid mt-3">
+          <!-- Left Column: Live Scorecard & Action Buttons -->
+          <div class="card matchday-controls-col">
+            <div class="live-scorecard-box">
+              <div class="team-score-item">
+                <span class="t-name" id="match-team-a-name">🦁 Royal Challengers</span>
+                <span class="t-score" id="match-score-a">142/3</span>
+                <span class="t-overs" id="match-overs-a">(14.2 ov)</span>
+              </div>
+              <div class="vs-center">
+                <span class="vs-circle">VS</span>
+                <span class="inn-target" id="match-target-txt">1st Innings in progress</span>
+              </div>
+              <div class="team-score-item right">
+                <span class="t-name" id="match-team-b-name">🦅 Super Kings</span>
+                <span class="t-score" id="match-score-b">118/5</span>
+                <span class="t-overs" id="match-overs-b">(14.2 ov)</span>
+              </div>
+            </div>
+
+            <div class="simulation-actions-group mt-3">
+              <button id="sim-ball-btn" class="btn btn-primary btn-block btn-lg" onclick="simNextBall()">
+                <span>🏏 SIMULATE NEXT BALL</span>
+              </button>
+              <div class="sim-row-buttons mt-2">
+                <button id="sim-over-btn" class="btn btn-secondary flex-1" onclick="simFullOver()">⏩ Sim Full Over</button>
+                <button id="sim-5overs-btn" class="btn btn-secondary flex-1" onclick="simFiveOvers()">🚀 Fast Forward 5 Ov</button>
+              </div>
+              <button id="sim-finish-btn" class="btn btn-outline btn-block mt-2" onclick="simInstantFinish()">⚡ Instant Match Finish</button>
+            </div>
+
+            <!-- Commentary Box -->
+            <div class="commentary-box mt-3">
+              <div class="comm-top">
+                <span>🎙️ LIVE BALL-BY-BALL COMMENTARY</span>
+                <span class="live-indicator-text">● LIVE TICKER</span>
+              </div>
+              <div class="comm-list" id="match-commentary-list">
+                <div class="comm-item recent">🎯 14.2 (Siraj to Dhoni): Full toss on middle! Smashed down the ground for 4 RUNS!</div>
+                <div class="comm-item">⚡ 14.1 (Siraj to Dhoni): Yorker right on off stump, dug out safely to point for no run.</div>
+                <div class="comm-item">🏏 14.0 (Jadeja to Kohli): Short of length, pulled away to deep mid-wicket for 2 easy runs.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: MATCH MOMENTUM & TEAM HEALTH (The Exact Kotlin Feature) -->
+          <div class="card momentum-health-col">
+            <div class="mh-header flex-between">
+              <span class="mh-title">⚡ MATCH MOMENTUM & TEAM HEALTH</span>
+              <span id="match-advantage-tag" class="advantage-pill">🔥 ADVANTAGE: RCB</span>
+            </div>
+            <p class="text-muted text-sm mt-1">Real-time visual progress bars tracking batting health (wickets intact) and algorithmic match dominance.</p>
+
+            <!-- Bar 1: Dominance Index -->
+            <div class="bar-group mt-3">
+              <div class="bar-labels">
+                <span class="font-bold">🏆 Match Dominance Index</span>
+                <span id="match-dominance-val" class="mono-val font-bold">RCB (62%) vs CSK (38%)</span>
+              </div>
+              <div class="progress-track dominance-track mt-1">
+                <div id="match-dominance-bar" class="progress-fill purple-fill" style="width: 62%;"></div>
+              </div>
+              <div class="bar-sub-labels">
+                <span id="label-dom-a">🦁 Royal Challengers</span>
+                <span id="label-dom-b">🦅 Super Kings</span>
+              </div>
+            </div>
+
+            <!-- Bar 2: Team A Batting Health -->
+            <div class="bar-group mt-3">
+              <div class="bar-labels">
+                <span class="font-bold green-txt" id="label-health-a">🏏 RCB Batting Health (Wickets Intact)</span>
+                <span id="match-health-a-val" class="mono-val font-bold green-txt">7/10 Wickets (70%)</span>
+              </div>
+              <div class="progress-track green-track mt-1">
+                <div id="match-health-a-bar" class="progress-fill green-fill" style="width: 70%;"></div>
+              </div>
+              <span class="bar-hint">Remaining batting firepower and lower-order stability</span>
+            </div>
+
+            <!-- Bar 3: Team B Batting Health -->
+            <div class="bar-group mt-3">
+              <div class="bar-labels">
+                <span class="font-bold blue-txt" id="label-health-b">🎯 CSK Batting Health (Wickets Intact)</span>
+                <span id="match-health-b-val" class="mono-val font-bold blue-txt">5/10 Wickets (50%)</span>
+              </div>
+              <div class="progress-track blue-track mt-1">
+                <div id="match-health-b-bar" class="progress-fill blue-fill" style="width: 50%;"></div>
+              </div>
+              <span class="bar-hint">Remaining batting firepower and lower-order stability</span>
+            </div>
+
+            <!-- AI Tactical Assistant Box -->
+            <div class="tactical-assistant-box mt-4">
+              <div class="ta-title">🧠 AI TACTICAL COACH INSIGHT</div>
+              <p id="match-tactical-insight" class="mt-1">With 7 wickets intact and a 62% dominance rating, Royal Challengers should push for aggressive boundary hitters in the death overs. Keep spinners on hold if evening dew sets in.</p>
+              <div class="ta-stats mt-2">
+                <div><span>Required RR:</span> <strong id="match-rrr">8.4 RPO</strong></div>
+                <div><span>Win Probability:</span> <strong id="match-winprob" class="purple-txt font-bold">74.2%</strong></div>
+              </div>
+            </div>
+
+            <!-- Man of the Match Card (Appears when completed) -->
+            <div id="motm-card" class="motm-card mt-3" style="display: none;">
+              <div class="motm-title">👑 MAN OF THE MATCH AWARD</div>
+              <div class="motm-body">
+                <span class="motm-trophy">🏆</span>
+                <div class="motm-details">
+                  <strong id="motm-name">Virat Kohli (RCB)</strong>
+                  <span id="motm-stats">84* (48 balls, 7 Fours, 5 Sixes)</span>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-block mt-3" onclick="closeMatchDaySimulation()">
+                <span>🏆 CLAIM POINTS & RETURN TO SCHEDULE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TEAM SELECTION / SWITCH FRANCHISE MODAL    -->
+      <!-- ========================================== -->
+      <div id="franchise-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content card">
+          <div class="modal-header flex-between">
+            <h2>🏏 Select Your IPL Franchise</h2>
+            <button class="btn btn-outline btn-xs" onclick="closeFranchiseModal()">✖</button>
+          </div>
+          <p class="text-muted mt-1">Choose your franchise team to manage in the 2026 Championship. This will reset the current season schedule.</p>
+          
+          <div class="team-selection-grid mt-3" id="team-selection-grid">
+            <!-- Dynamically populated teams -->
+          </div>
+        </div>
+      </div>
 
     </main>
 
     <!-- Toast Notification Overlay -->
     <div id="toast-container" class="toast-container"></div>
 
+    <!-- Application Footer -->
     <footer class="app-footer">
-      <div class="footer-inner">
-        <p><strong>IPL Franchise Manager Pro</strong> &bull; Native Kotlin Android App & Vercel Web Edition</p>
-        <p class="sub-text">100% Client-Side Reactive Simulation Engine &bull; Built with Google AI Studio & Vite</p>
+      <div class="footer-content">
+        <p><strong>IPL Franchise Manager Pro</strong> &bull; Vercel Web Companion (Material Design 3 Light Theme)</p>
+        <p class="footer-sub">100% Client-Side Algorithmic Simulation &bull; Built with Kotlin Companion Architecture</p>
       </div>
     </footer>
 
